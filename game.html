@@ -1,0 +1,29 @@
+<html>
+<body>
+<p id="clickscore">score: 0</p>
+<p id="cpscount">cps: 0</p>
+<script>
+const scorecounter = document.getElementById("clickscore");
+var score = 0;
+var cps = 0;
+function scorecount(){
+    scorecounter.innerHTML = "score: " + score;
+}
+function addscore(){
+    score++;
+    scorecount();
+}
+setInterval(function(){score = score + cps; scorecount();}, 1000);
+function buyCps(){
+    if(score>=10){
+        score = score - 10;
+        cps++;
+       document.getElementById("cpscount").innerHTML = "cps: " + cps;
+        scorecount();
+    }
+}
+</script>
+<button onclick="addscore()">click</button>
+<button onclick="buyCps()">buy 1 cps for 10 points</button>
+</body>
+</html>
