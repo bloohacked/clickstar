@@ -23,6 +23,25 @@ function buyCps(){
         scorecount();
     }
 }
+function save(){
+    localStorage.setItem('score', score);
+    localStorage.setItem('cps', cps);
+}
+function loadsave(){
+    if(localStorage.getItem('cps') === null){
+        localStorage.setItem('score', 0);
+        localStorage.setItem('cps', 0);
+        score = 0;
+        cps = 0;
+    }else{
+        score = Number(localStorage.getItem('score'));
+        cps = Number(localStorage.getItem('cps'));
+    }
+scorecount();
+document.getElementById("cpscount").innerHTML = "cps: " + cps;
+}
+loadsave();
+setInterval(function(){save();}, 10000);
 </script>
 <button onclick="addscore()">click</button>
 <button onclick="buyCps()">buy 1 cps for 10 points</button>
