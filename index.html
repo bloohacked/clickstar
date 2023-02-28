@@ -4,6 +4,7 @@
 <p id="clickscore">score: 0</p>
 <p id="cpscount">cps: 0</p>
 <script>
+var cpsprice = 10;
 const scorecounter = document.getElementById("clickscore");
 var score = 0;
 var cps = 0;
@@ -16,26 +17,39 @@ function addscore(){
 }
 setInterval(function(){score = score + cps; scorecount();}, 1000);
 function buyCps(){
-    if(score>=10){
-        score = score - 10;
+    if(score>=cpsprice){
+        score = score - cpsprice;
         cps++;
        document.getElementById("cpscount").innerHTML = "cps: " + cps;
         scorecount();
+        cpsprice = cpsprice + 5;
+        document.getElementById("cpsButton").innerHTML = "buy 1 cps for " + cpsprice + " points";
     }
 }
 function save(){
     localStorage.setItem('score', score);
     localStorage.setItem('cps', cps);
+    localStorage.setItem('cpsprice', cpsprice);
 }
 function loadsave(){
     if(localStorage.getItem('cps') === null){
         localStorage.setItem('score', 0);
         localStorage.setItem('cps', 0);
+        localStorage.setItem('cpsprice', 10);
         score = 0;
         cps = 0;
+        cpsprice = 10;
     }else{
+        const itemSet = (localStorage.getItem('nonExistent') !== null);
+        if(itemSet == false){
+            alert("sorry but you had save data from an older version of this game and we had to reset your score and cps to 0(you will see why).");
+            localStorage.setItem('score', 0);
+            localStorage.setItem('cps', 0);
+            localStorage.setItem('cpsprice', 10);
+        }
         score = Number(localStorage.getItem('score'));
         cps = Number(localStorage.getItem('cps'));
+        cpsprice = Number(localStorage.getItem('cpsprice'));
     }
 scorecount();
 document.getElementById("cpscount").innerHTML = "cps: " + cps;
@@ -44,6 +58,9 @@ loadsave();
 setInterval(function(){save();}, 10000);
 </script>
 <button onclick="addscore()">click</button>
-<button onclick="buyCps()">buy 1 cps for 10 points</button>
+<button id="cpsButton" onclick="buyCps()">buy 1 cps for 10 points</button>
+<script>
+    document.getElementById("cpsButton").innerHTML = "buy 1 cps for " + cpsprice + " points";
+</script>
 </body>
 </html>
