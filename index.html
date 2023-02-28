@@ -40,7 +40,7 @@ function loadsave(){
         cps = 0;
         cpsprice = 10;
     }else{
-        const itemSet = (localStorage.getItem('nonExistent') !== null);
+        const itemSet = (localStorage.getItem('cpsprice') !== null);
         if(itemSet == false){
             alert("sorry but you had save data from an older version of this game and we had to reset your score and cps to 0(you will see why).");
             localStorage.setItem('score', 0);
