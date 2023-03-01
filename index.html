@@ -61,6 +61,9 @@ setInterval(function(){save();}, 10000);
 <button id="cpsButton" onclick="buyCps()">buy 1 cps for 10 points</button>
 <script>
     document.getElementById("cpsButton").innerHTML = "buy 1 cps for " + cpsprice + " points";
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/index.html");
+    }
 </script>
 </body>
 </html>
