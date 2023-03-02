@@ -27,9 +27,9 @@ function buyCps(){
     }
 }
 function save(){
-    localStorage.setItem('score', 0);
-    localStorage.setItem('cps', 0);
-    localStorage.setItem('cpsprice', 0);
+    localStorage.setItem('score', score);
+    localStorage.setItem('cps', cps);
+    localStorage.setItem('cpsprice', cpsprice);
 }
 function loadsave(){
     if(localStorage.getItem('cps') === null){
