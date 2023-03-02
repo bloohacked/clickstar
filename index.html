@@ -33,9 +33,9 @@ function save(){
 }
 function loadsave(){
     if(localStorage.getItem('cps') === null){
-        localStorage.setItem('score', 0);
-        localStorage.setItem('cps', 0);
-        localStorage.setItem('cpsprice', 10);
+        localStorage.setItem('score', score);
+        localStorage.setItem('cps', cps);
+        localStorage.setItem('cpsprice', cpsprice);
         score = 0;
         cps = 0;
         cpsprice = 10;
