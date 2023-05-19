@@ -40,9 +40,7 @@ function loadsave(){
         cps = 0;
         cpsprice = 10;
     }else{
-        if(score == 0){
-            alert("hacking is now punishable by death");
-        }
+        if(prompt("enter save password") == "NOHACKERSBLAHBLAHBlAH"){
         const itemSet = (localStorage.getItem('cpsprice') !== null);
         if(itemSet == false){
             alert("sorry but you had save data from an older version of this game and we had to reset your score and cps to 0(you will see why).");
@@ -54,6 +52,10 @@ function loadsave(){
         cps = Number(localStorage.getItem('cps'));
         cpsprice = Number(localStorage.getItem('cpsprice'));
     }
+    }else{
+        score = 0;
+        cps = 0;
+        cpsprice = 10;
 scorecount();
 document.getElementById("cpscount").innerHTML = "cps: " + cps;
 }
