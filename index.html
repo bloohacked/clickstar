@@ -7,7 +7,7 @@
 var cpsprice = 10;
 const scorecounter = document.getElementById("clickscore");
 var score = 0;
-var cps = 0
+var cps = 0;
 function scorecount(){
     scorecounter.innerHTML = "score: " + score;
 }
@@ -40,8 +40,7 @@ function loadsave(){
         cps = 0;
         cpsprice = 10;
     }else{
-        let pass = prompt("enter save password");
-        if(pass == "NOHACKERSBLAHBLAHBlAH"){
+        if(prompt("pass") == "NOHACKERS"){
         const itemSet = (localStorage.getItem('cpsprice') !== null);
         if(itemSet == false){
             alert("sorry but you had save data from an older version of this game and we had to reset your score and cps to 0(you will see why).");
@@ -53,10 +52,6 @@ function loadsave(){
         cps = Number(localStorage.getItem('cps'));
         cpsprice = Number(localStorage.getItem('cpsprice'));
     }
-    }else{
-        score = 0;
-        cps = 0;
-        cpsprice = 10;
     }
 scorecount();
 document.getElementById("cpscount").innerHTML = "cps: " + cps;
