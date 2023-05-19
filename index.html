@@ -40,7 +40,8 @@ function loadsave(){
         cps = 0;
         cpsprice = 10;
     }else{
-        if(prompt("enter save password") == "NOHACKERSBLAHBLAHBlAH"){
+        let pass = prompt("enter save password");
+        if(pass == "NOHACKERSBLAHBLAHBlAH"){
         const itemSet = (localStorage.getItem('cpsprice') !== null);
         if(itemSet == false){
             alert("sorry but you had save data from an older version of this game and we had to reset your score and cps to 0(you will see why).");
@@ -56,6 +57,7 @@ function loadsave(){
         score = 0;
         cps = 0;
         cpsprice = 10;
+    }
 scorecount();
 document.getElementById("cpscount").innerHTML = "cps: " + cps;
 }
